@@ -223,6 +223,8 @@ Which two statements are true?
 6. The elements of myArray1 can be modified by other classes
 
 # Question 8
+
+Given:
 ```java
 package question8;
 
@@ -230,6 +232,8 @@ public class MethodTest {
     // line 1
 }
 ```
+
+Which two method implementations are correct, when inserted independently in line 1?
 
 1. 
 ```java
