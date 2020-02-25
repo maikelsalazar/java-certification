@@ -1,5 +1,161 @@
 # Java Programmer I
 
+## Question 1
+
+```java
+package question1;
+
+public abstract class Media {
+    int duration;
+    int volume;
+    int contrast;
+    String title;
+
+    abstract void play();
+
+    abstract void stop();
+
+    abstract void changeVolume(int x);
+
+    abstract void changeContrast(int x);
+
+    abstract void changeTitle(String title);
+}
+```
+
+```java
+package question1;
+
+public interface Audio {
+}
+
+```
+
+```java
+package question1;
+
+public interface Video {
+}
+
+```
+
+```java
+package question1;
+
+
+public class MediaFormat1 extends Media implements Audio {
+
+    @Override
+    void play() {
+
+    }
+
+    @Override
+    void stop() {
+
+    }
+
+    @Override
+    void changeVolume(int x) {
+
+    }
+
+    @Override
+    void changeContrast(int x) {
+
+    }
+
+    @Override
+    void changeTitle(String title) {
+
+    }
+}
+
+```
+
+```java
+package question1;
+
+
+public class MediaFormat2 extends Media implements Video {
+
+    @Override
+    void play() {
+
+    }
+
+    @Override
+    void stop() {
+
+    }
+
+    @Override
+    void changeVolume(int x) {
+
+    }
+
+    @Override
+    void changeContrast(int x) {
+
+    }
+
+    @Override
+    void changeTitle(String title) {
+
+    }
+}
+
+```
+
+```java
+package question1;
+
+
+public class MediaFormat3 extends Media implements Video, Audio {
+
+    @Override
+    void play() {
+
+    }
+
+    @Override
+    void stop() {
+
+    }
+
+    @Override
+    void changeVolume(int x) {
+
+    }
+
+    @Override
+    void changeContrast(int x) {
+
+    }
+
+    @Override
+    void changeTitle(String title) {
+
+    }
+}
+
+```
+
+Examine these specifications:
+- MediaFormat1 is audio-only. Users should have the ability to change the volumen, but not the contrast. Assume contrast is fixed at 0.
+- MediaFormat2 is video-only Users should have the ability to change the volumen, but not the contrast. Assume volumen is fixed at 0.
+- MediaFormart3 contains both audio and video. Users should have the ability to adjust both volumen and contrast.
+
+Which two changes would allow you to achieve these specifications?
+1. move int volumen from media to audio
+2. move int contrast from Media to Video
+3. make media an interface rather tan an abstract class
+4. move changeVolume from Media to Video
+5. move changeContrast from Media to Video
+6. make Media, rather tan MediaFormat1, MediaFormat2, and MediaFormat3 implement Audio and Video
+
+> Unresolved
+
 ## Question 2
 
 ### Given
@@ -222,7 +378,7 @@ Which two statements are true?
 5. The list VALUES can be modified through myArray2
 6. The elements of myArray1 can be modified by other classes
 
-# Question 8
+### Question 8
 
 Given:
 ```java
@@ -275,3 +431,116 @@ public boolean methodD(int x) {
 > can't be 1, because it doesn't have to return nothing but it has a return
 > can't be 2, because returns a String instead of a char
 > can't be 4, because it has to return a String and returns nothing.
+
+### Question 9
+
+Given
+```java
+package question9.pkgA;
+
+public class A {
+
+    int i = 10;
+    protected int j = 12;
+    public int k = 8;
+}
+```
+
+and
+```java
+package question9.pkgB;
+
+import question9.pkgA.A;
+
+public class B extends A {
+
+    public static void main(String[] args) {
+        B ob = new B();
+
+        System.out.println(" " + ob.i); // Line 1
+        System.out.println(" " + ob.j); // Line 2
+        System.out.println(" " + ob.k); // Line 3
+    }
+}
+```
+
+Where does the compilation fail?
+1. only at Line n2
+2. at Line n2 and Line n3
+3. only at Line n1
+4. at Line n1 and Line n2
+
+> Answer is: 3
+>
+> _i_ is not public, cannot be accesed from outside package. Actually _i_ is default.
+> To define a property as default you omits the visibility accesor
+>
+> _j_ is protected and B inherited
+>
+> _k_ is public and can be accessed from anywhere
+
+### Question 10
+
+```java
+package question10;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CreateArrayListExample {
+    public static void main(String[] args) {
+        List<String> vegetables = new ArrayList<>();
+        vegetables.add("Kale");
+        vegetables.add(0, "Lettuce");
+        System.out.println(vegetables);
+
+        List<char> fish = new ArrayList<>();
+        fish.add("Salmon");
+        fish.add(0, "Seabass");
+        System.out.println(fish);
+    }
+}
+```
+
+Whats is the result?
+1. [Lettuce, Kale] [Seabass, Salmon]
+2. A compilation error is thrown
+3. [Lettuce, Kale]
+4. [Kale , Lettuce] [Salmon , Seabass]
+
+> Answer is: 2, you can't use a primitive as argument of a List
+>
+> Note: if it fixed the answer would be 1.
+
+### Question 11
+
+```java
+package question11;
+
+public class pregunta11 {
+
+    public static void main(String[] args) {
+        String s = "";
+        if (Double.parseDouble("11.00f") > 11) {
+            s += 1;
+        }
+        if (1_7 == Integer.valueOf("17")) {
+            s += 2;
+        }
+        if (1024 > 1023L) {
+            s += 3;
+        }
+        System.out.print(s);
+    }
+}
+```
+
+What is the result?
+1. 23
+2. 12
+3. 123
+4. 13
+
+> The answer is 1
+>
+> 1_7 is another form to write 17, you can separate numbers with _
