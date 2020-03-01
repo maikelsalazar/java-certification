@@ -2,7 +2,7 @@
 
 Given:
 
-```
+```java
 public class Natural {
     private int i;
     void disp(){
