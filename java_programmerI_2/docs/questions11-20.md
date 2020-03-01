@@ -212,5 +212,126 @@ The protected modifier on a Field declaration within a public class means that t
 
 > The answer is 4
 
+## Question 19
 
+Given the code fragment:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student {
+
+    int rollnumber;
+    String name;
+    List cources = new ArrayList();
+    // insert code here
+    public String toString() {
+        return rollnumber + " : " + name + " : " + cources;
+    }
+}
+```
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student {
+
+    int rollnumber;
+    String name;
+    List cources = new ArrayList();
+    // insert code here
+    public String toString() {
+        return rollnumber + " : " + name + " : " + cources;
+    }
+}
+```
+
+Which code fragment, when inserted at line // insert code here, enables class Test to print 123 : Fred : [Java, C]?
+
+
+1.
+```java
+private Student(int i, String name, List cs) {
+    /* initialization code goes here */
+}
+```
+
+2.
+```java
+public void Student(int i, String name, List cs) {    /* initialization code goes here */
+}
+```
+
+3.
+```java
+Student(int i, String name, List cs) {
+    /* initialization code goes here */
+}
+ 
+```
+
+4.
+```java
+Student(int i, String name, ArrayList cs) {    /* initialization code goes here */
+}
+```
+
+> The answer is 3.
+
+## Question 20
+
+Given:
+```java
+public class Circle {
+    double radius;
+    public double area;
+
+    public Circle(double r) {
+        radius = r;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double r) {
+        radius = r;
+    }
+
+    public double getArea() {
+        return /* ??? */;
+    }
+}
+```
+
+```java
+class App {
+    public static void main(String[] args) {
+        Circle c1 = new Circle(17.4);
+        c1.area = Math.PI * c1.getRadius() * c1.getRadius();
+    }
+}
+```
+
+The class is poorly encapsulated. You need to change the circle class to compute and return the area instead.
+
+Which two modifications are necessary to ensure that the class is being properly encapsulated?
+
+1. Remove the area field
+
+2. Change the getArea( ) method as follows:
+```java
+public double getArea ( ) { return Math.PI * radius * radius; }
+```
+
+3. Add the following method:
+```java
+public double getArea ( ) {area = Math.PI * radius * radius; }
+```
+
+4. Change the acess modifier of the SetRadius() method to be protected.
+
+> The answers are 1 and 2
 
