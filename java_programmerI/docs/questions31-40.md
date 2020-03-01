@@ -166,3 +166,187 @@ methodD
 10
 ```
 
+## Question 35
+
+Given:
+
+
+```java
+Package A;
+
+public class Test {
+
+    String name;
+
+    public Test(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+```
+
+and
+
+```java
+package question35.B;
+
+import question35.A.Test;
+
+public class Main {
+
+    public static void main(String[] args){
+        Test test = new Test("Student");
+        System.out.println(test);
+    }
+}
+```
+
+What is the result?
+1. java.lang.IllegalAccessException is thrown
+2. Student
+3. nothing
+4. null
+5. It fails to compile
+
+> The answer is 5. `Package A;` is invalid, it should be `package A;`
+
+## Question 36
+
+Which describes a characteristic of setting up the Java development environment?
+
+1. Setting up the Java development environment requires that you also install the JRE
+2. You set up the Java development environment for a specific operating system when you install the JDK
+3. The Java development environment is set up for all operating systems for default
+4. Setting up the Java development environment occurs when you install an IDE before the JDK
+
+## Question 37
+
+Given:
+
+```java
+package question37;
+
+public class Test {
+    public static void main(String[] args) {
+	}
+
+    public void foo() throws FooException {
+        // ....
+    }
+}
+
+```
+
+And omitting the throws FooException clause results in a compilation error.
+
+Which statement is true about FooException?
+1. The body of foo can only throw FooException
+2. The body of foo can throw FooException or one of its subclasses
+3. FooException is unchecked
+4. FooException is a subclass of RuntimeException
+
+> The answer is 2. RuntimeException is unchecked and is not necessary to declare throws.
+
+> The option 4 is rewritten, it said RuntimeError instead of RuntimeException. RuntimeError
+is not a class in Java.
+
+## Question 38
+
+Given:
+```java
+package question38;
+
+public class Foo {
+    public static void main(String[] args) {
+        for(var x: args){
+            System.out.println(x);
+        }
+    }
+}
+```
+
+What is the type of the local variable x?
+1. String[] 
+2. String
+3. Character 
+4. char
+
+> The answer is 2
+
+## Question 39
+
+Given:
+
+```java
+package question39;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Question39 {
+
+    public static void main(String[] args) {
+        List<String> list ...;
+
+
+        list.forEach(x -> {
+            System.out.println(x);
+        });
+    }
+}
+```
+
+Whats is the type of x?
+1. List<Character>
+2. char
+3. String
+4. List<String>
+
+> The answer is 3
+
+## Question 40
+
+```java
+package test;
+
+import java.time.*;
+
+public class Diary {
+
+    private LocalDate now = LocalDate.now();
+
+    public LocalDate getDate(){
+        return now;
+    }
+}
+```
+
+```java
+package test;
+
+public class Tester {
+
+    public static void main(String[] args) {
+        Diary d = new Diary();
+        System.out.println(d.getDate());
+
+    }
+}
+```
+
+Which statement is true?
+1. All classes from the package java.time are loaded for the class Diary
+2. Class Tester does not need to import java.time.LocalDate because it is already visible to
+members of the package test
+3. Only LocalDate class from java.time package is loaded
+4. Tester must import java.time.LocalDate in order to compile
+
+> The answer is 3.
+
+
+
